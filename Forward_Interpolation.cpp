@@ -43,12 +43,15 @@ public:
 		int n = x.size();
 		double h = x[1] - x[0];
 		double p = (value - x[0]) / (h * 1.0);
+		cout << "p " << p << endl;
 		double res = y[0];
 		double term = 1;
 		for(int i = 1 ; i < n ; i++) {
 			term *= (p - (i - 1));
 			res += (term * diffTable[0][i]) / factorial(i);
+			cout << res << ' ';
 		}
+		cout << res << endl;
 		return res;
 	}
 };
@@ -57,13 +60,13 @@ int main() {
 	int n = 4;
 	// cin >> n;
 	// vector<double> x(n), y(n);
-	vector<double> x = {1, 2, 3, 4};
-	vector<double> y = {1, 8, 27, 64};
+	vector<double> x = {1, 3, 5, 7};
+	vector<double> y = {24, 120, 336, 720};
 	// for(int i = 0 ; i < n ; i++)
 		// cin >> x[i];
 	// for(int i = 0 ; i < n ; i++)
 		// cin >> y[i];
-	double value = 2.5;
+	double value = 4;
 	// cin >> value;
 
 	forwardInterpolation f(x, y);
