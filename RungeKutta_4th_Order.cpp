@@ -42,12 +42,14 @@ int main () {
 
 /*
 input:
+equation: (x-y)/2
 x0 = 0, y = 1, h = 0.2, x = 2
 0 1 0.2 2
 output:
 1.10364
 
 input:
+equation: x + y^2
 x0 = 0, y = 1, h = 0.1, x = 0.2
 0 1 0.1 0.2
 output:
