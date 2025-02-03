@@ -24,9 +24,11 @@ public:
 				return;
 			}
 			x2 = x1 - (x1 - x0) * f1 / (f1 - f0);
+			if(fabs(x2 - x1) < tolerance)
+				break;
 			x0 = x1;
 			x1 = x2;
-		}while(fabs(Function(x2)) > tolerance);
+		}while(true);
 		cout << "Root: " << x2 << endl;
 	}
 	void Equation() {
@@ -37,7 +39,7 @@ public:
 int main() {
 	cout << fixed << setprecision(6);
 	double x0 = 0, x1 = 1;
-	int n = 10;
+	int n = 100;
 	// cin >> x0;  // first guess
 	// cin >> x1;  // second guess
 	// cin >> n;	// max_iteration

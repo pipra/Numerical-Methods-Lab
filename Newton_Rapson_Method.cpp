@@ -11,6 +11,7 @@ private:
     double first_derivative(double x) {
         return (3 * x * x + 1);
     }
+
 public:
     NewtonRaphson(double ini, double tol) {
         guess = ini;
@@ -32,15 +33,20 @@ public:
 
 int main() {
     cout << fixed << setprecision(3);
-    double x2, e;
-    x2 = 2;
+    double x, e;
+    x = 2;
     e = 1e-6;
-    // cin >> x2;  // initial guess
+    // cin >> x;  // initial guess
     // cin >> e;  // desired accuracy
 
-    NewtonRaphson raph(x2, e);
+    NewtonRaphson raph(x, e);
     raph.Equation();
     raph.solve();
 
     return 0;
 }
+/*
+Equation: x ^ 3 + x - 1
+initial_guess = 2, tolerance = 1e-6
+Root: 0.682
+*/

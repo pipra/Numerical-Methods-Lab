@@ -49,4 +49,7 @@ int32_t main() {
     Bisection bi;
     bi.Equation();
     bi.bisectionGeneratorSolve();
+
+    int l = rand()%100;
+    cout << l << endl;
 }
