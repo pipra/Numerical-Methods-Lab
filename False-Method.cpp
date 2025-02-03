@@ -13,33 +13,30 @@ public:
     double bisection(double a, double b) {
         double mid = -1;
         while(a < b) {
-            mid = (a + b) / 2.00;
-            double res = Function(mid);
+            double c = (a * Function(b) - b * Function(a)) / (Function(b) - Function(a));
+            double res = Function(c);
             if(abs(res) < tolerance) {
-                return mid;
+                return c;
             }
-            else if(res < 0.0)
-                a = mid;
+            else if((res * Function(a)) < 0.0)
+                b = c;
             else 
-                b = mid;
+                a = c;
         }
-        return mid;
+        return 0.0;
     }
     void False_Position_Method() {
         double left = -100.0, right = 100.0;
-        double a = rng(left, right);
-        double b = rng(left, right);
+        double a, b;
+        do {
+            a = rng(left, right);
+            b = rng(left, right);
+        } while(Function(a) * Function(b) > 0);
         if(a > b)
             swap(a, b);
         cout << "Interval: [" << a << ", " << b << "]" << endl;
-        if(Function(a) * Function(b) > 0.00) {
-            cout << "Answer not exist:" << endl;
-            return;
-        }
-        else {
-            double ans = bisection(a, b);
-            cout << "Root: " << ans << endl;
-        }
+        double ans = bisection(a, b);
+        cout << "Root: " << ans << endl;
     }
     void Equation() {
         cout << "Equation: " << "x ^ 3 - 3 * x - 5" << endl;
@@ -51,3 +48,9 @@ int32_t main() {
     false_pos.Equation();
     false_pos.False_Position_Method();
 }
+
+/*
+input:
+equation: x^3 - 3x - 5
+root: 2.279
+*/
